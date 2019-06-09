@@ -19,8 +19,6 @@ def paypal_ipn_handler(request):
 		ipn_handler.parser(ipn_data_dic)
 		return HttpResponse("")
 
-
-
 def home(request):
     return render(request, "home.html", context={})
 
