@@ -25,3 +25,10 @@ class Order(models.Model):
     created_timestamp = models.DateTimeField("Created At", auto_now_add=True, null=True) 
 
 
+class Message(models.Model):
+    def __str__(self):
+        return self.name + " : " + self.email
+
+    name = models.CharField("Name", max_length = 200, default=None, blank=True, null=True)
+    email = models.CharField("Email", max_length = 200, default=None, blank=True, null=True)
+    message = models.TextField("Message", max_length = 2000, default=None, blank=True, null=True)
