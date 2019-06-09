@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grow Your Twitter Naturally | Natural &amp; Affordable | Twengage</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/twengage.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/help.css' %}" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon-32x32.png' %}" sizes="32x32" />
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Global site tag (gtag.js) - Google Ads: 840519920 --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-840519920"></script> 
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-840519920'); </script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="c8582b77-d31e-4da0-93d3-e528018eb104";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <!--PROOF PIXEL-->
+    <script src="https://cdn.useproof.com/proof.js?acc=W7GealYeI3MXcatfU4o6Vzjfhwn1" async></script>
+    <!--END PROOF PIXEL-->
+</head>
+<body>
+<div class="twengage-content home">
+	<header id="header">
+		<div class="container">
+			<nav class="navbar-bg navbar navbar-expand-md bg-dark">
+                <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt="Twengage"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="fas fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <a href="/howitworks/">How it works</a>
+                        </li>
+                        <li>
+                            <a href="/packages/">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="/faq/">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="/contact/">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="/packages/">Get Started</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+		</div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+    
+	<section id="get-started">
+		<div class="container">
+			<h2>GETTING STARTED IS EASY</h2>
+			<div class="gt-content">
+				<div class="gt-green">
+					<span><img src="{% static 'images/gt-arrow.svg' %}" alt="#"></span>
+					<p><span>Order processed immediately</span>On all orders</p>
+				</div>
+				<div class="gt-green">
+					<span><img src="{% static 'images/gt-user.svg' %}" alt="#"></span>
+					<p><span>Start Seeing new followers</span> Fast!</p>
+				</div>
+				<div class="gt-green">
+					<span><img src="{% static 'images/gt-plane.svg' %}" alt="#"></span>
+					<p><span>High-quality engagement</span> Real people behind interactions</p>
+				</div>
+			</div>
+			<div class="gt-btn">
+				<a class="btn" href="/packages/">GET STARTED NOW</a>
+			</div>
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h5>GET IN TOUCH</h5>
+					<a href="mailto:support@twengage.com">support@twengage.com</a>
+				</div>
+				<div class="col-md-6">
+					<h5>SUBSCRIBE TO NEWSLETTER</h5>
+					<div class="ft-subscribe">
+						<input type="email" name="email" placeholder="Your e-mail">
+						<button>SUBSCRIBE</button>
+					</div>
+				</div>
+			</div>
+			<div class="icon">
+				<a href="#"><i class="fab fa-twitter"></i></a>
+			</div>
+			<div class="ft-copyright">
+				<p>©2018 twengage.com   All rights reserved.</p>
+			</div>
+			<ul class="ft-menu">
+                <li>
+                    <a href="#">Privacy</a>
+                </li>
+                <li>
+                    <a href="#">Terms and Conditions</a>
+                </li>
+                <li>
+                    <a href="#">Left Feedback</a>
+                </li>
+            </ul>
+		</div>
+	</footer>
+</div>
+<script src="{% static 'js/slick.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'js/twengage.js' %}"></script>
+<script type="text/javascript">
+	$(document).on('ready', function() {
+      $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
+      $(".center").slick({
+        dots: false,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 1
+      });
+      $(".variable").slick({
+        dots: true,
+        infinite: true,
+        variableWidth: true
+      });
+    });
+</script>
+<script type="text/javascript">
+ $(document).ready( function() {
+    if ( $(window).width() < 0) {
+	    setInterval(function(){
+        $('.tg-ul .active').addClass('next');
+            if($('.tg-ul div:last-child').hasClass('active')){
+                $('.tg-ul div:first-child').addClass('active');
+            }
+            else{
+                $('.tg-ul .active').next().addClass('active');
+            }
+            $('.tg-ul .next').removeClass('active next');
+        }, 0);
+    }
+ });
+
+$(window).resize(function(){
+	if ( $(window).width() < 0) {
+		    setInterval(function(){
+	        $('.tg-ul .active').addClass('next');
+	            if($('.tg-ul div:last-child').hasClass('active')){
+	                $('.tg-ul div:first-child').addClass('active');
+	            }
+	            else{
+	                $('.tg-ul .active').next().addClass('active');
+	            }
+	            $('.tg-ul .next').removeClass('active next');
+	        }, 0);
+	    }
+});
+</script>
+</body>
+</html>

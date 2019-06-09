@@ -1,0 +1,7 @@
+.remove-padding {
+    padding-top: unset !important;
+}
+
+html {
+    scroll-behavior: smooth
+}

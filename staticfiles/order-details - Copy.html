@@ -1,0 +1,170 @@
+{% extends "base_frontend.html" %} 
+{% load static %}
+    {% block content %}
+<style type="text/css">
+    .modal-dialog  {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    .login-page {
+      margin: auto;
+    }
+
+
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      margin: 0 auto;
+      padding: 30px;
+      text-align: left !important;
+      display: inline-block;
+      text-align: center;
+      width: 350px;
+      border: 1px solid;
+      margin-bottom: 2em;
+    }
+
+    .form input, .form select {
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 24px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+    .form button {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      background: #01a2a6;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 15px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+    .form button:hover,.form button:active,.form button:focus {
+      background: #01a2a6;
+    }
+    .form .message {
+      margin: 15px 0 0;
+      color: #b3b3b3;
+      font-size: 14px;
+    }
+    .form .message a {
+      color: #01a2a6;
+      text-decoration: none;
+    }
+    .form .register-form {
+      display: none;
+    }
+    .modal-body.container {
+      position: relative;
+      z-index: 1;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+    }
+    .close {
+        color: black; 
+        opacity: 1;
+        font-size: 20px;
+        width: 100%;
+        text-align: right;
+        display: unset;
+    }
+
+    .modal-header {
+        border-bottom: unset;
+    }
+    .modal-content {
+        border-radius: unset;
+    }
+    .form-error {
+        width: 90%;
+        margin: auto;
+    }
+    img {
+        max-width: 100%;
+    }
+    @media only screen and (min-width: 767px){
+        .form input {
+            width: 50% !important;
+        }
+        .form {
+            width: 90% !important;
+        }
+    }
+
+</style>
+<div class="main-container text-center">
+    <h2>Thank you for signing up to Twengage!</h2>
+    <br>
+    <div class="login-page">
+        <div class="form-error">
+            <span class="text-white">Please complete all fields correctly</span>
+        </div>
+        <div class="form">
+            <h5 class="formHeading text-center">Complete your Order</h5>
+            <hr>
+            <form class="order-details-form" action="/order/details/" method="POST">
+                {% csrf_token %}
+                <label><i class="fas fa-hashtag"></i>Hashtags that you would like to engage with and grow from:</label>
+                <input type="text" name="hashtags" placeholder="#crypto #birthday #pets" required/>
+
+                <label><i class="fas fa-at"></i>Accounts similar to yours or who’s following you’re interested in:</label>
+                <input type="text" name="similar_users" placeholder="@krassenstein @EdKrassen" required/>
+                <hr>
+                <p>Because we are providing real growth, we do require your password in order to grow your Twitter account. Be assured that your password is completely safe with us. </p>
+                <label>Your Twitter Email:</label>
+                <input type="email" name="twitter_email" placeholder="Twitter Email" required/>
+                <br>
+                <label>Your Twitter Phone Number:</label>
+                <input type="text" name="twitter_phone" placeholder="Twitter Phone" required/>
+                <br>
+                
+                <label>Your Twitter Password:</label>
+                <input type="password" name="twitter_password" placeholder="Twitter Password" required/>
+                
+
+                <button>Update Order</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function updateOrder(){
+        var order_form = $(".order-details-form");
+        order_form.submit(function(onSubmit) {
+            onSubmit.preventDefault();         
+            jQuery.ajax({
+                type: "POST",
+                url: "/order/details/",
+                data: order_form.serialize(),
+                success: function (response, errorText, errorHTTP ) {         
+                    // Send to PayPal
+                    location.href = "/thankyou/"
+                },
+                error: function (errorObject, errorText, errorHTTP) {
+                    // console.log("error")
+                    $(".form-error").show()
+                    // location.reload();
+                }
+            });
+
+        })
+    }
+    window.onload = function() {
+                                    updateOrder();
+                            };
+
+</script>
+{% endblock %}

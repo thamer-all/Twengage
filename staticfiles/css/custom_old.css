@@ -1,0 +1,40 @@
+footer.details .logo{
+    max-width: 160px;
+}
+
+@media only screen and (max-width: 767px) and (min-width: 320px){
+    .top-bar .logo.logo-wide {
+        bottom: 30px;
+        margin-bottom: 22px;
+    }
+}
+
+
+.client-photo {
+    width: 20%;
+    border-radius: 50%;
+    margin-bottom: 5%;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+  
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px; /* Adjusts for spacing */
+}
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+/* 
+.lead {
+    text-align: center !important;
+} */

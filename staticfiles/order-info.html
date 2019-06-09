@@ -1,0 +1,162 @@
+{% load static %}
+<style type="text/css">
+    .modal-dialog  {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    .login-page {
+      margin: auto;
+    }
+
+
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      margin: 0 auto;
+      padding: 30px;
+      text-align: center;
+      display: inline-block;
+      text-align: center;
+      width: 290px;
+    }
+
+    .form input, .form select {
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+    .form button {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      background: #01a2a6;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 15px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+    .form button:hover,.form button:active,.form button:focus {
+      background: #01a2a6;
+    }
+    .form .message {
+      margin: 15px 0 0;
+      color: #b3b3b3;
+      font-size: 14px;
+    }
+    .form .message a {
+      color: #01a2a6;
+      text-decoration: none;
+    }
+    .form .register-form {
+      display: none;
+    }
+    .modal-body.container {
+      position: relative;
+      z-index: 1;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+    }
+    .close {
+        color: black; 
+        opacity: 1;
+        font-size: 20px;
+        width: 100%;
+        text-align: right;
+        display: unset;
+    }
+
+    .modal-header {
+        border-bottom: unset;
+    }
+    .modal-content {
+        border-radius: unset;
+    }
+    .form-error {
+        width: 90%;
+        margin: auto;
+    }
+    img {
+        max-width: 100%;
+    }
+</style>
+
+<div class="modal fade" tabindex="-1" id="order-info" role="dialog" aria-labelledby="OrderInfo">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body container">
+                <h5 class="formHeading"></h5>
+                <div class="login-page">
+                    <h2>Provide Info</h2>
+                    <p class="message">Selected Package: <span id="total-likes">-</span> Likes</p>
+                    <div class="form-error">
+                            <span class="text-white">Please complete all fields correctly</span>
+                    </div>
+                    <div class="form">
+                        <form class="order-form" action="order/" method="POST">
+                            {% csrf_token %}
+                            <input type="email" name="email" placeholder="Contact Email" required/>
+                            <input type="text" name="twitter_username" placeholder="Your Twitter Username" required/>
+                            <!-- <input type="password" name="twitter_password" placeholder="Your Twitter Password" required/> -->
+                            <input type="text" name="package_id" hidden/>
+                            <button>Pay Now</button>
+                            <p class="message">SSL Secure Connection</p>
+                            <img src="{% static 'img/security-badge.png' %}" alt="Secure Checkout">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+
+    function submitOrder(){
+        var order_form = $(".order-form");
+        order_form.submit(function(onSubmit) {
+            onSubmit.preventDefault();
+            console.log(package_id);            
+            jQuery.ajax({
+                type: "POST",
+                url: "/order/",
+                data: order_form.serialize(),
+                success: function (response, errorText, errorHTTP ) {         
+                    // Send to PayPal
+                    $(package_id).submit();
+                },
+                error: function (errorObject, errorText, errorHTTP) {
+                    // console.log("error")
+                    $(".form-error").show()
+                    location.reload();
+                }
+            });
+
+        })
+    }
+    function loadOrder(e){
+        package_id = $(e).attr("data-package-id");
+        $("[name=package_id]").val(package_id);
+        submitOrder()
+    }
+
+</script>

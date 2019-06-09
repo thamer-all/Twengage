@@ -1,0 +1,71 @@
+{% extends "base_frontend.html" %} 
+{% load static %}
+    {% block content %}
+        <style>
+            .cents {
+                font-size: 40%;
+                vertical-align: top;
+            }
+            .btn-primary:active {
+                color: #fff;
+                background-color: #36ccb3;
+                border-color: #36ccb3;
+            }
+        </style>
+        <div class="main-container">
+            <section class="pricing-1 bg-secondary-1">
+                <div class="fluid-container" style="padding: 0 1em;">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <!-- <h1 class="text-white">Super simple pricing<br>that scales with your usage</h1> -->
+                            <h1 class="text-white">Super simple pricing<br>that scales with your usage</h1>
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="row clearfix pricing-tables">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3 col-sm-6 no-pad">
+                            <div class="pricing-table">
+                                <div class="price">
+                                    <span class="sub">$</span>
+                                    <span class="amount">9<small class="cents">97</small></span> 
+                                    <span class="sub">/wk</span>
+                                </div>
+                                <ul class="features">
+                                    <li>7 Days a Week Management</li>
+                                    <li>Premium Organic Growth*</li>
+                                    <li>Target Your Chosen Audience</li>
+                                    <li>10 Week Minimum Term</li>
+                                </ul>
+                                <a data-package-id="#10WK" data-toggle="modal" data-target="#order-info" href="#" class="btn btn-primary btn-white" onclick="loadOrder(this)">GET STARTED</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-6 no-pad">
+                            <div class="pricing-table emphasis">
+                                <div class="price">
+                                    <span class="sub">$</span>
+                                    <span class="amount">14<small class="cents">97</small></span>
+                                    <span class="sub">/wk</span>
+                                </div>
+                                <ul class="features">
+                                    <li>7 Days a Week Management</li>
+                                    <li>Premium Organic Growth*</li>
+                                    <li>Target Your Chosen Audience</li>
+                                    <li>Cancel Anytime</li>
+                                </ul>
+                                <a data-package-id="#1WK" data-toggle="modal" data-target="#order-info" href="#" class="btn btn-primary btn-white" onclick="loadOrder(this)">GET STARTED</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3"></div>
+                    </div>
+                    
+                </div>           
+
+            </section>    
+        </div>
+        {% include "order-info.html" %}
+    {% endblock %}

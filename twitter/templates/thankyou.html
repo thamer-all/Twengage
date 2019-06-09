@@ -1,0 +1,25 @@
+{% extends "base_frontend.html" %}
+{% load static %}
+{% block content %}
+<!-- Event snippet for Sale conversion page -->
+<script> gtag('event', 'conversion', { 'send_to': 'AW-840519920/dEpNCJ-4wZMBEPCh5ZAD', 'value': 9.99, 'currency': 'USD', 'transaction_id': '' }); </script>
+<div class="thank-content">
+    <div class="tq-top">
+        <div class="container">
+            <figure><img src="{% static 'images/tqclick.png' %}" alt="#"></figure>
+            <h2>THANK YOU!</h2>
+            <p>Please, check your email for the order-receipt.</p>
+        </div>
+    </div>
+    <div class="tq-bottom">
+        <div class="container">
+            <h2>ORDER UPDATED SUCCESSFULLY</h2>
+            <p>Please, check your email for the order-reciept.</p>
+            <div class="tq-btn">
+                <a class="home-btn" href="/">HOME</a>
+                <a class="git-btn" href="/contact/">GET IN TOUCH</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base_frontend.html" %}
+{% load static %}
+{% block content %}
+<div class="contact-content">
+    <div class="ct-top">
+        <div class="container">
+            <h2>GET IN TOUCH</h2>
+            <div class="ct-topitems">
+                <div class="ct-item">
+                    <h3>ADDRESS</h3>
+                    <p><span>USA</span></p>
+                    <p>311 Maple Ave. Vienna, VA</p>
+
+                </div>
+                <div class="ct-item">
+                    <h3>SUPPORT HOURS</h3>
+                    <p><span>Monday to Friday</span>: 10am to 7pm</p>
+                    <p><span>Saturday</span>: 10am to 4pm</p>
+                </div>
+                <div class="ct-item">
+                    <h3>CONTACT US</h3>
+                    <p>Email customer service at: <span>Support@twengage.com</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="ct-bottom">
+            <div class="form-header">
+                <figure><img src="{% static 'images/purple.png' %}" alt="#"></figure>
+                <h2>YOUR GROWTH IS OUR MISSION</h2>
+                <p>The best Twitter Growth service available.</p>
+            </div>
+            <div class="form-container">
+                <form method="POST" action="/contact/">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><span class="in-name"><img src="{% static 'images/formuser.png' %}" alt=""></span><input type="text"
+                                    name="name" placeholder="Name"></label>
+                            <label><span class="in-email"><img src="{% static 'images/formemail.png' %}" alt="#"></span><input type="email"
+                                    name="email" placeholder="E-mail"></label>
+                            <label><span class="in-subject"><img src="{% static 'images/formsub.png' %}"></span><input type="text"
+                                    name="subject" placeholder="Subject"></label>
+                        </div>
+                        <div class="col-md-6">
+                            <textarea name="message" placeholder="Message" maxlength="2000"></textarea>
+                        </div>
+                    </div>
+
+                    <button>SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

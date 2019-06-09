@@ -1,0 +1,44 @@
+{% extends "base_frontend.html" %}
+{% load static %}
+{% block content %}
+<div class="membership-content">
+    <div class="ms-top">
+        <div class="container">
+            <h2>MEMBERSHIP OPTIONS</h2>
+            <p>Thousands of happy users are benefiting from Twengage Everyday!</p>
+        </div>
+    </div>
+    <div class="ms-bottom">
+        <div class="container">
+            <div class="ms-flex">
+                <div class="ms-col1">
+                    <h4>Weekly</h4>
+                    <p>Who'd pass up a free drink?</p>
+                    <div class="ms-payment">
+                        <span class="ms-price"><span class="ms-currency">$</span>9<span class="ms-extra">99</span><span class="ms-time">/w</span></span>
+                    </div>
+                    <ul class="ms-list">
+                        <li>Premium Organic Growth</li>
+                        <li>Target Your Chosen Audience</li>
+                        <li><span>Engagement</span> Daily</li>
+                    </ul>
+                    <a class="btn" href="/order?package=1">GET STARTED</a>
+                </div>
+                <div class="ms-col2">
+                    <h4>DOUBLE SHOT</h4>
+                    <p>Cheaper than buying a round</p>
+                    <div class="ms-payment">
+                        <span class="ms-price"><span class="ms-currency">$</span>26<span class="ms-extra">99</span><span class="ms-time">/m</span></span>
+                    </div>
+                    <ul class="ms-list">
+                        <li>Premium Organic Growth</li>
+                        <li>Target Your Chosen Audience</li>
+                        <li><span>Engagement</span> Daily</li>
+                    </ul>
+                    <a class="btn" href="/order?package=2">GET STARTED</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

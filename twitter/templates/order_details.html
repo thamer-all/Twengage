@@ -1,0 +1,123 @@
+{% extends "base_frontend.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<form class="order-details">
+    {% csrf_token %}
+    <div class="package-content" id="step-1">
+        <div class="pk-top">
+            <div class="container">
+                <figure><img src="{% static 'images/Untitled-1.png' %}"></figure>
+                <h2>PAYMENT SUCCESSFUL! LETS GET YOU STARTED</h2>
+                <p>Please provide a list of hashtags that you would like us to target</p>
+            </div>
+        </div>
+        <div class="da-div">
+        </div>
+        <div class="pk-bottom">
+            <div class="container">
+                <div class="pb-header">
+                    <div class="pg-count pg-count1">
+                        <span>1</span>/3
+                        <svg class="self-progressbar" data-progress-percent="45">
+                            <circle cx="40.5" cy="40.5" r="39" class="crlc-path"></circle>
+                        </svg>
+                    </div>
+                    <h3>HASHTAGS</h3>
+
+                </div>
+                <div class="pb-body">
+                    <label>Please seperate hashtags by comma</label>
+                    <input type="text" name="hashtags" placeholder="ex.: #Food, #Sports, #Luxury" required>
+                    <span><a href="#step-2">NEXT STEP</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="package-content remove-padding" id="step-2">
+        <div class="da-div">
+            <a href="#"><i class="fas fa-chevron-down"></i></a>
+        </div>
+        <div class="pk-bottom">
+            <div class="container">
+                <div class="pb-header">
+                    <div class="pg-count pg-count2">
+                        <span>2</span>/3
+                        <svg class="self-progressbar" data-progress-percent="45">
+                            <circle cx="40.5" cy="40.5" r="39" class="crlc-path"></circle>
+                        </svg>
+                    </div>
+                    <h3>SIMILIAR SCCOUNTS</h3>
+
+                </div>
+                <div class="pb-body">
+                    <label>Please seperate similar accounts by comma</label>
+                    <input type="text" name="similar_users" placeholder="@johsy, @stakes, @makes" required>
+                    <span><a href="#step-3">NEXT STEP</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="package-content remove-padding" id="step-3">
+        <div class="da-div">
+            <a href="#"><i class="fas fa-chevron-down"></i></a>
+        </div>
+        <div class="pk-bottom">
+            <div class="container">
+                <div class="pb-header">
+                    <div class="pg-count pg-count3">
+                        <span>3</span>/3
+                        <svg class="self-progressbar" data-progress-percent="45">
+                            <circle cx="40.5" cy="40.5" r="39" class="crlc-path"></circle>
+                        </svg>
+                    </div>
+                    <h3>Twitter Account Info</h3>
+
+                </div>
+                <div class="pb-body">
+                    <label>Twitter Phone Number</label>
+                    <input type="text" name="twitter_phone" placeholder="+1 890 000 000" required>
+                    <label>Twitter Email</label>
+                    <input type="text" name="twitter_email" placeholder="example@example.com" required>
+                    <label>Twitter Password</label>
+                    <input type="text" name="twitter_password" placeholder="example@example.com" required>
+                    <span><button type="submit">SUBMIT</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".order-details").submit(function(event){
+        event.preventDefault()
+        var order_form = $(".order-details");
+        jQuery.ajax({
+            type: "POST",
+            url: "/order/details/",
+            data: order_form.serialize(),
+            success: function (response, errorText, errorHTTP) {
+                // Send to PayPal
+                location.href = "/thankyou/"
+            },
+            error: function (errorObject, errorText, errorHTTP) {
+                // console.log("error")
+                $(".form-error").show()
+                // location.reload();
+            }
+        });
+    })
+
+</script>
+
+
+{% endblock %}
