@@ -11,13 +11,7 @@ import threading
 import json
 import uuid
 
-@csrf_exempt
-def paypal_ipn_handler(request):
-	if request.method == "POST":
-		ipn_data_dic = json.loads(request.body.decode("utf-8"))
-		print("Got Message from UP")
-		ipn_handler.parser(ipn_data_dic)
-		return HttpResponse("")
+
 
 def home(request):
     return render(request, "home.html", context={})
