@@ -1,7 +1,3 @@
-from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
-from django.contrib import auth as djangoAuth
 
 from twitter import models
 from twitter import db_handler
