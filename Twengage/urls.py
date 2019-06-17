@@ -18,8 +18,4 @@ from django.urls import path
 from django.conf.urls import include
 from django.views.generic.base import RedirectView
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('favicon.ico', RedirectView.as_view(url='/static/img/favicon.ico')),
-    path('', include('twitter.urls')),    
-]
+
