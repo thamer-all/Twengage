@@ -2,7 +2,9 @@ from django.db import models
 
 import uuid
 
-
+class Order(models.Model):
+    def __str__(self):
+        return str(self.twitter_username) + " : " + str(self.order_active)
 
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.CharField("Contact Email", max_length = 200, default=None, blank=True, null=True)
